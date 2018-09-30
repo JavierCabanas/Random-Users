@@ -20,14 +20,17 @@ class RetroftiUsersClient : UserNetworkDatasource {
 
     override fun readContactList(request: ReadUserListInteractor.UserListRequest):
             Either<Failure, List<UserEntity>> {
-        val call= apiClient.readContactList(request.size, request.page+1, API_SEED)
-
-        val result = call.execute()
-
-        return if (result.isSuccessful){
-            Either.Right(result.body()?.results?: emptyList())
-        }else{
-            Either.Left(Failure.RemoteRepoFailure(result.message()))
+        val call = apiClient.readContactList(request.size, request.page + 1, API_SEED)
+        try {
+            val result = call.execute()
+            return if (result.isSuccessful) {
+                Either.Right(result.body()?.results ?: emptyList())
+            } else {
+                Either.Left(Failure.RemoteRepoFailure(result.message()))
+            }
+        } catch (e: Exception) {
+            return Either.Left(Failure.RemoteRepoFailure(e.message!!))
         }
+
     }
 }

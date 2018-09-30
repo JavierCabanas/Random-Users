@@ -6,6 +6,7 @@ import dagger.MapKey
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import me.cabanas.javi.randomusers.feature.users.domain.interactors.ReadUserListInteractor
 import me.cabanas.javi.randomusers.feature.users.presentation.UsersViewModel
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -30,5 +31,5 @@ class ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelModule.ViewModelKey(UsersViewModel::class)
-    fun provideContactsViewModel(): ViewModel = UsersViewModel()
+    fun provideContactsViewModel(readUsers: ReadUserListInteractor): ViewModel = UsersViewModel(readUsers)
 }

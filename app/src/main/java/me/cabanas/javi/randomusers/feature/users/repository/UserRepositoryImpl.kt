@@ -6,7 +6,7 @@ import me.cabanas.javi.randomusers.feature.users.domain.interactors.ReadUserList
 import me.cabanas.javi.randomusers.feature.users.domain.model.UserEntity
 import me.cabanas.javi.randomusers.feature.users.repository.network.UserNetworkDatasource
 
-class UserRepositoriImpl(val network: UserNetworkDatasource) : UserRepository {
+class UserRepositoryImpl(val network: UserNetworkDatasource) : UserRepository {
     override fun readContactList(request: ReadUserListInteractor.UserListRequest):
             Either<Failure, List<UserEntity>> = network.readContactList(request)
 }
