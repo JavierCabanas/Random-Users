@@ -10,6 +10,7 @@ class UsersViewModel(private val readUsers: ReadUserListInteractor) : ViewModel(
 
     var userList = mutableListOf<UserEntity>()
     var users: MutableLiveData<List<UserEntity>> = MutableLiveData()
+    var failure: MutableLiveData<Failure> = MutableLiveData()
 
     private var page = 0
 
@@ -18,12 +19,13 @@ class UsersViewModel(private val readUsers: ReadUserListInteractor) : ViewModel(
     }
 
     private fun handleSuccess(result: List<UserEntity>) {
+        page++
         userList.addAll(result)
         users.value = userList.distinctBy { it.email }
     }
 
     private fun handleFailure(failure: Failure) {
-
+        this.failure.value = failure
     }
 
 }

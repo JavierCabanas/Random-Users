@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Random Users</string>
+    <string name="failure_local">Database error</string>
+    <string name="failure_remote">Server Error</string>
+    <string name="failure_default">Oops!</string>
 </resources>
