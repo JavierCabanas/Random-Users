@@ -8,7 +8,7 @@ import me.cabanas.javi.randomusers.feature.users.presentation.UsersAdapter
 
 @Module
 abstract class UserListViewBindingModule {
-    @ContributesAndroidInjector(modules = [UserListViewModule::class])
+    @ContributesAndroidInjector(modules = [UserListViewModule::class, RouterModule::class])
     abstract fun UsersActivity(): UsersActivity
 
     @Module

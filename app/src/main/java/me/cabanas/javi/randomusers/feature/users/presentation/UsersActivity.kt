@@ -11,6 +11,7 @@ import android.widget.Toast
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_users.*
 import me.cabanas.javi.randomusers.R
+import me.cabanas.javi.randomusers.core.Router
 import me.cabanas.javi.randomusers.core.error.Failure
 import me.cabanas.javi.randomusers.framework.base.BaseActivity
 import javax.inject.Inject
@@ -19,9 +20,10 @@ class UsersActivity : BaseActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
     @Inject
     lateinit var usersAdapter: UsersAdapter
+    @Inject
+    lateinit var router: Router
 
     private lateinit var viewModel: UsersViewModel
 
@@ -40,7 +42,7 @@ class UsersActivity : BaseActivity() {
         userList.layoutManager = layoutManager
         userList.adapter = usersAdapter
         usersAdapter.itemClick = {
-            Toast.makeText(this, it.email, Toast.LENGTH_LONG).show()
+            router.openUserDetail(this, it.email)
         }
         userList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {

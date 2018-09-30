@@ -2,6 +2,7 @@ package me.cabanas.javi.randomusers.feature.users.presentation
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import me.cabanas.javi.randomusers.core.Router
 import me.cabanas.javi.randomusers.core.error.Failure
 import me.cabanas.javi.randomusers.feature.users.domain.interactors.ReadUserListInteractor
 import me.cabanas.javi.randomusers.feature.users.domain.model.*
