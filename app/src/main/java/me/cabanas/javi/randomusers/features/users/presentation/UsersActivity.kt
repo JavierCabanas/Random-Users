@@ -1,4 +1,4 @@
-package me.cabanas.javi.randomusers.feature.users.presentation
+package me.cabanas.javi.randomusers.features.users.presentation
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.widget.Toast
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_users.*
 import me.cabanas.javi.randomusers.R

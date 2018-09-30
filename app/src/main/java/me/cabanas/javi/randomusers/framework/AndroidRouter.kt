@@ -1,11 +1,10 @@
 package me.cabanas.javi.randomusers.framework
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import me.cabanas.javi.randomusers.core.BUNDLE_CONST_USER_ID
 import me.cabanas.javi.randomusers.core.Router
-import me.cabanas.javi.randomusers.feature.users.presentation.DetailUserActivity
+import me.cabanas.javi.randomusers.features.users.presentation.DetailUserActivity
 
 class AndroidRouter : Router {
     override fun openUserDetail(context: Context, email: String) {

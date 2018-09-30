@@ -1,4 +1,4 @@
-package me.cabanas.javi.randomusers.feature.users.presentation
+package me.cabanas.javi.randomusers.features.users.presentation
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.item_user_male.view.*
 import me.cabanas.javi.randomusers.R
-import me.cabanas.javi.randomusers.feature.users.domain.model.UserEntity
+import me.cabanas.javi.randomusers.features.users.domain.model.UserEntity
 import me.cabanas.javi.randomusers.framework.GlideApp
 import kotlin.properties.Delegates
 

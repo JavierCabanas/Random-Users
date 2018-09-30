@@ -1,4 +1,4 @@
-package me.cabanas.javi.randomusers.feature.users.repository.network
+package me.cabanas.javi.randomusers.features.users.repository.network
 
 import retrofit2.Call
 import retrofit2.http.GET

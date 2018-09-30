@@ -2,14 +2,16 @@ package me.cabanas.javi.randomusers.di.modules
 
 import dagger.Module
 import dagger.Provides
-import me.cabanas.javi.randomusers.feature.users.repository.UserRepository
-import me.cabanas.javi.randomusers.feature.users.repository.UserRepositoryImpl
-import me.cabanas.javi.randomusers.feature.users.repository.network.UserNetworkDatasource
+import me.cabanas.javi.randomusers.features.users.repository.UserRepository
+import me.cabanas.javi.randomusers.features.users.repository.UserRepositoryImpl
+import me.cabanas.javi.randomusers.features.users.repository.local.UserLocalDataSource
+import me.cabanas.javi.randomusers.features.users.repository.network.UserNetworkDataSource
 
 @Module
 class RepositoryModule {
     @Provides
-    fun provideUserRepository(networkDatasource: UserNetworkDatasource): UserRepository =
-            UserRepositoryImpl(networkDatasource)
+    fun provideUserRepository(networkDataSource: UserNetworkDataSource,
+                              localDataSource: UserLocalDataSource): UserRepository =
+            UserRepositoryImpl(networkDataSource, localDataSource)
 
 }

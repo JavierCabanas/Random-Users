@@ -6,8 +6,8 @@ import dagger.MapKey
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
-import me.cabanas.javi.randomusers.feature.users.domain.interactors.ReadUserListInteractor
-import me.cabanas.javi.randomusers.feature.users.presentation.UsersViewModel
+import me.cabanas.javi.randomusers.features.users.domain.interactors.ReadUserListInteractor
+import me.cabanas.javi.randomusers.features.users.presentation.UsersViewModel
 import javax.inject.Provider
 import javax.inject.Singleton
 import kotlin.reflect.KClass

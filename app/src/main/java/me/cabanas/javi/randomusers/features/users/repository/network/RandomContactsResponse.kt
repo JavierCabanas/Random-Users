@@ -1,7 +1,7 @@
-package me.cabanas.javi.randomusers.feature.users.repository.network
+package me.cabanas.javi.randomusers.features.users.repository.network
 
 import com.google.gson.annotations.SerializedName
-import me.cabanas.javi.randomusers.feature.users.domain.model.UserEntity
+import me.cabanas.javi.randomusers.features.users.domain.model.UserEntity
 
 data class RandomContactsResponse(@SerializedName("results")
                                   val results: List<UserEntity>,

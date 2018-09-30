@@ -1,4 +1,4 @@
-package me.cabanas.javi.randomusers.feature.users.domain.model
+package me.cabanas.javi.randomusers.features.users.domain.model
 
 import com.google.gson.annotations.SerializedName
 

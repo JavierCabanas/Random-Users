@@ -5,6 +5,8 @@ import android.app.Application
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
+import io.realm.Realm
+import io.realm.RealmConfiguration
 import me.cabanas.javi.randomusers.di.components.DaggerApplicationComponent
 import javax.inject.Inject
 
@@ -19,6 +21,15 @@ class App : Application(), HasActivityInjector {
 
     private fun initApp() {
         setupInjector()
+        initDatabase()
+    }
+
+    private fun initDatabase() {
+        Realm.init(this.applicationContext)
+        val config = RealmConfiguration.Builder()
+                .deleteRealmIfMigrationNeeded()
+                .build()
+        Realm.setDefaultConfiguration(config)
     }
 
     private fun setupInjector() {
