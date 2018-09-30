@@ -1,5 +1,6 @@
 package me.cabanas.javi.randomusers.feature.users.domain.interactors
 
+import me.cabanas.javi.randomusers.core.error.Failure
 import me.cabanas.javi.randomusers.core.functional.Either
 import me.cabanas.javi.randomusers.core.interactor.BaseInteractor
 import me.cabanas.javi.randomusers.feature.users.domain.model.UserEntity
@@ -10,7 +11,7 @@ class ReadUserListInteractor(private val repository: UserRepository,
                              coroutineContext: CoroutineContext) :
         BaseInteractor<ReadUserListInteractor.UserListRequest, List<UserEntity>>(coroutineContext) {
 
-    override suspend fun run(request: UserListRequest): Either<Error, List<UserEntity>> {
+    override suspend fun run(request: UserListRequest): Either<Failure, List<UserEntity>> {
         return repository.readContactList(request)
     }
 
