@@ -39,7 +39,7 @@ class ViewModelModule {
 
     @Provides
     @IntoMap
-    @ViewModelModule.ViewModelKey(UsersViewModel::class)
+    @ViewModelModule.ViewModelKey(UserDetailViewModel::class)
     fun provideUserDetailViewModel(readUser: ReadUserInteractor): ViewModel =
             UserDetailViewModel(readUser)
 }

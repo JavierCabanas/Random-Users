@@ -3,4 +3,11 @@
     <string name="failure_local">Database error</string>
     <string name="failure_remote">Server Error</string>
     <string name="failure_default">Oops!</string>
+    <string name="phone_label">Phone</string>
+    <string name="cell_label">Cell</string>
+    <string name="address">%1$s\n%2$s, %3$s %4$s</string>
+    <string name="address_label">Home</string>
+    <string name="email_label">Personal</string>
+    <string name="menu_edit">edit</string>
+    <string name="menu_more">more</string>
 </resources>

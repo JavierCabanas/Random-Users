@@ -38,7 +38,7 @@ class UsersActivity : BaseActivity() {
         userList.layoutManager = layoutManager
         userList.adapter = usersAdapter
         usersAdapter.itemClick = {
-            router.openUserDetail(this, it.email)
+            router.openUserDetail(this, it.login.uuid)
         }
         userList.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {

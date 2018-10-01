@@ -46,16 +46,18 @@ class UsersAdapter : RecyclerView.Adapter<UsersAdapter.UserViewHolder>() {
 
 
     sealed class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        open fun bind(contact: UserEntity, clickListener: (UserEntity) -> Unit) {
-            itemView.name.text = contact.name.first + " " + contact.name.last
-            itemView.phone.text = contact.cell
-            itemView.email.text = contact.email
-            GlideApp.with(itemView)
-                    .load(contact.picture.thumbnail)
-                    .placeholder(R.mipmap.ic_launcher)
-                    .centerInside()
-                    .into(itemView.avatar)
-            itemView.setOnClickListener { clickListener(contact) }
+        open fun bind(user: UserEntity, clickListener: (UserEntity) -> Unit) {
+            with(user) {
+                itemView.name.text = name.first + " " + name.last
+                itemView.phone.text = phone
+                itemView.email.text = email
+                GlideApp.with(itemView)
+                        .load(picture.thumbnail)
+                        .placeholder(R.mipmap.ic_launcher)
+                        .centerInside()
+                        .into(itemView.avatar)
+                itemView.setOnClickListener { clickListener(this) }
+            }
         }
 
         class MaleViewHolder(itemView: View) : UserViewHolder(itemView)

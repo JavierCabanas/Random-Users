@@ -7,9 +7,9 @@ import me.cabanas.javi.randomusers.core.Router
 import me.cabanas.javi.randomusers.features.users.presentation.UserDetailActivity
 
 class AndroidRouter : Router {
-    override fun openUserDetail(context: Context, email: String) {
+    override fun openUserDetail(context: Context, uuid: String) {
         val intent = Intent(context, UserDetailActivity::class.java)
-        intent.putExtra(BUNDLE_CONST_USER_ID, email)
+        intent.putExtra(BUNDLE_CONST_USER_ID, uuid)
         context.startActivity(intent)
     }
 

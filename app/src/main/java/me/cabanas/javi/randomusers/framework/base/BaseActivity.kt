@@ -30,7 +30,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected abstract fun getLayoutResourceId(): Int
 
-    protected fun getBaseLayout() = R.layout.activity_base
+    open protected fun getBaseLayout() = R.layout.activity_base
 
     open protected fun initView() {
     }

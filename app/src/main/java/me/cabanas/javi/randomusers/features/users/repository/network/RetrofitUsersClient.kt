@@ -1,5 +1,6 @@
 package me.cabanas.javi.randomusers.features.users.repository.network
 
+import android.util.Log
 import me.cabanas.javi.randomusers.core.API_SEED
 import me.cabanas.javi.randomusers.core.BASE_URL
 import me.cabanas.javi.randomusers.core.error.Failure
@@ -10,7 +11,7 @@ import me.cabanas.javi.randomusers.features.users.domain.model.UserEntity
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RetroftiUsersClient : UserNetworkDataSource {
+class RetrofitUsersClient : UserNetworkDataSource {
     val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
@@ -23,6 +24,7 @@ class RetroftiUsersClient : UserNetworkDataSource {
         return try {
             val call = apiClient.readUserList(request.size, request.page + 1, API_SEED)
             val result = call.execute()
+            Log.d("API CALL",result.message())
             when {
                 result.isSuccessful -> Either.Right(result.body()?.results ?: emptyList())
                 else -> Either.Left(Failure.RemoteRepoFailure(result.message()))
