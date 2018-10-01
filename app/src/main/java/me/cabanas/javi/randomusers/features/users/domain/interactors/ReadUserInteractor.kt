@@ -7,13 +7,14 @@ import me.cabanas.javi.randomusers.features.users.domain.model.UserEntity
 import me.cabanas.javi.randomusers.features.users.repository.UserRepository
 import kotlin.coroutines.experimental.CoroutineContext
 
-class ReadUserListInteractor(private val repository: UserRepository,
-                             coroutineContext: CoroutineContext) :
-        BaseInteractor<ReadUserListInteractor.Request, List<UserEntity>>(coroutineContext) {
+class ReadUserInteractor(private val repository: UserRepository,
+                         coroutineContext: CoroutineContext) :
+        BaseInteractor<ReadUserInteractor.Request, UserEntity>(coroutineContext) {
 
-    override suspend fun run(request: Request): Either<Failure, List<UserEntity>> =
-            repository.readUserList(request)
+    override suspend fun run(request: Request): Either<Failure, UserEntity> =
+            repository.readUser(request)
 
 
-    data class Request(val page: Int, val size: Int)
+    data class Request(val id: String)
+
 }

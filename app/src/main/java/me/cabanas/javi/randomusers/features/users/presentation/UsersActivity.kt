@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_users.*
 import me.cabanas.javi.randomusers.R
 import me.cabanas.javi.randomusers.core.Router
@@ -29,9 +28,7 @@ class UsersActivity : BaseActivity() {
     override fun getLayoutResourceId(): Int = R.layout.activity_users
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        initViewModel()
         viewModel.loadUsers()
     }
 
@@ -52,7 +49,7 @@ class UsersActivity : BaseActivity() {
         })
     }
 
-    private fun initViewModel() {
+    override fun initViewModel() {
         viewModel = ViewModelProviders.of(this, viewModelFactory)
                 .get(UsersViewModel::class.java)
         viewModel.users.observe(this, Observer {

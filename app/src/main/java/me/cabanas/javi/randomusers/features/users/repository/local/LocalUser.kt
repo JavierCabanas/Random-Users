@@ -5,6 +5,9 @@ import io.realm.annotations.PrimaryKey
 
 
 open class LocalUser : RealmObject() {
+    @PrimaryKey
+    var uuid: String = ""
+    var userName: String = ""
     var gender: String = ""
     var firstName: String = ""
     var lastName: String = ""
@@ -12,7 +15,6 @@ open class LocalUser : RealmObject() {
     var city: String = ""
     var state: String = ""
     var postCode: String = ""
-    @PrimaryKey
     var email: String = ""
     var phone: String = ""
     var cell: String = ""

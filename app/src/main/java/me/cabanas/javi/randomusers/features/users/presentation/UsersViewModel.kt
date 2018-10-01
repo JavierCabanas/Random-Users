@@ -4,7 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import me.cabanas.javi.randomusers.core.error.Failure
 import me.cabanas.javi.randomusers.features.users.domain.interactors.ReadUserListInteractor
-import me.cabanas.javi.randomusers.features.users.domain.model.*
+import me.cabanas.javi.randomusers.features.users.domain.model.UserEntity
 
 class UsersViewModel(private val readUsers: ReadUserListInteractor) : ViewModel() {
 
@@ -14,7 +14,7 @@ class UsersViewModel(private val readUsers: ReadUserListInteractor) : ViewModel(
 
     private var page = 0
 
-    fun loadUsers() = readUsers(ReadUserListInteractor.UserListRequest(page, 10)) {
+    fun loadUsers() = readUsers(ReadUserListInteractor.Request(page, 10)) {
         it.either(::handleFailure, ::handleSuccess)
     }
 

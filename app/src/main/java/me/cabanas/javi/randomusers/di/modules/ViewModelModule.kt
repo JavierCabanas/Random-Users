@@ -6,7 +6,9 @@ import dagger.MapKey
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
+import me.cabanas.javi.randomusers.features.users.domain.interactors.ReadUserInteractor
 import me.cabanas.javi.randomusers.features.users.domain.interactors.ReadUserListInteractor
+import me.cabanas.javi.randomusers.features.users.presentation.UserDetailViewModel
 import me.cabanas.javi.randomusers.features.users.presentation.UsersViewModel
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -15,7 +17,8 @@ import kotlin.reflect.KClass
 @Module
 class ViewModelModule {
     @MapKey
-    @Target(AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
+    @Target(AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER,
+            AnnotationTarget.PROPERTY_SETTER)
     annotation class ViewModelKey(val value: KClass<out ViewModel>)
 
     @Singleton
@@ -31,5 +34,12 @@ class ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelModule.ViewModelKey(UsersViewModel::class)
-    fun provideContactsViewModel(readUsers: ReadUserListInteractor): ViewModel = UsersViewModel(readUsers)
+    fun provideUsersViewModel(readUsers: ReadUserListInteractor): ViewModel =
+            UsersViewModel(readUsers)
+
+    @Provides
+    @IntoMap
+    @ViewModelModule.ViewModelKey(UsersViewModel::class)
+    fun provideUserDetailViewModel(readUser: ReadUserInteractor): ViewModel =
+            UserDetailViewModel(readUser)
 }
